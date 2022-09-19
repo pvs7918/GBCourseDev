@@ -10,3 +10,38 @@
 [“Russia”, “Denmark”, “Kazan”] → []
 */
 
+string [] InputStringArray()
+{
+    string [] srcArray;
+    string srcString = string.Empty;
+    int N = 0;
+    while (true)
+    {
+        Console.WriteLine($"Введите {N}-ю строку текста для исходного массива строк. Нажмите q для окончания ввода.");
+        srcString = Console.ReadLine();
+        if (srcString.ToUpper() == "Q")
+        {
+            break;
+        }
+        else
+        {
+            N++;
+            Array.Resize(ref srcArray, N);
+            srcArray[N]=srcString;
+        }
+    }
+    return srcArray;
+}
+
+string OutputStringArray(string[] srcArray)
+{
+    string str = "[";
+    for (int i = 0; i < srcArray.Length; i++)
+    {
+        if (i > 0)
+            str += ", ";
+        str += $"\"{srcArray[i]}\"";
+    }
+    str += "]";
+    return str;
+}
